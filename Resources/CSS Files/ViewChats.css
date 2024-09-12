@@ -1,0 +1,292 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.NavigationBar{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    position: fixed;
+    background: fixed;
+    background-color: blue;
+ }
+.SideBar{
+    font-size: 30px;
+    position: absolute;
+    position: fixed;
+    top: 0px;
+    right: -250px;
+    width: 250px;
+    border-radius: 10px;
+    height: 60%;
+    background:#063146;
+    transition: all .5s ease;
+    z-index: 100;
+}
+.SideBar header{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    background: #0489cc ;
+    user-select: none; 
+}
+.SideBar ul a{
+    display: block;
+    height: 100%;
+    width: 100;
+    padding-left: 40px;
+    line-height: 140px;
+    font: 20px;
+    color:white;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
+    transition: .5s;
+}
+ ul li:hover a{
+    padding-left: 50px;
+    color: red; 
+}
+.SideBar ul a i{
+    margin-right: 16px;
+}
+#toggle{
+    display: none;
+}
+label #menuBar,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #042331;
+    border-radius: 3px;
+}
+label #menuBar{
+    right: 5px;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    transition: all .5s;
+}
+label #cancel{
+    position: fixed;
+    z-index: 1111;
+    right: -250px;
+    top: 5px;
+    font-size: 30px;
+    color:#0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+}
+#toggle:checked ~ .SideBar{
+    right: 0;
+}
+#toggle:checked ~ label #menuBar{
+    right:250px;
+    opacity: 0;
+    pointer-events: none;
+}
+#toggle:checked ~ label #cancel{
+    right:0px;
+}
+
+#chat-container {
+
+    position: fixed;
+    top: 77px;
+    width: 100%;
+    height: 90%;
+    border: 1px solid #0d09f7;
+    background: #0d09f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+  }
+  #chat-output {
+    width: 99%;
+    height: calc(100% - 90px);
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  
+  #chat-input {
+    width: calc(100% - 95px);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+
+  #chat-button {
+    width: 10px;
+    padding: 12px 6px;
+    background: none;
+    position:relative;
+  }
+  .material-symbols-outlined{
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    border-radius: 50px;
+    border: none;
+    padding: 1px;
+    background: #31363f;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size:  50px;
+    margin-left: -1.1rem;
+    margin-top: -0.8rem;
+    outline:  none;
+  }
+  .message {
+  background-color: #dcf8c6;
+  margin: 5px 0 ; /* Aligns user messages to the right */
+  text-align: right;
+  border-radius: 10px;
+  padding: 10px;
+  max-width:100%; /* Width adjusts based on content */
+  word-wrap: break-word; /* Ensures long words are wrapped */
+  word-break: break-all;
+  overflow-wrap: break-word;
+  max-width: 50%;
+}
+
+.user-message {
+  position: relative;
+  background-color: #dcf8c6;
+  margin-left: auto; /* Aligns user messages to the right */
+  text-align: right;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content; /* Width adjusts based on content */ 
+   
+}
+
+.bot-message {
+    position: relative;
+    align-items: center;
+    background-color: #f1f1f1;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px; /* Minimal padding */
+    width: fit-content; /* Width adjusts based on content */
+    margin: 0px; /* Aligns bot messages to the left */
+}
+.typing-indicator {
+  font-style: italic;
+  color: #e11313;
+  margin: 5px 0;
+}
+
+
+#colorBox Span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* Combined Settings Box */
+.settingsBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+  }
+.settingsBox h3 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+#colorbox span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+#colorbox span:hover {
+    transform: scale(1.1);
+}
+
+
+ /* Centered and Combined Settings Box */
+ .settingsBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    background: rgb(88, 84, 84);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+  }
+
+  /* Theme box for background color*/
+
+  #colorbox {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #f4d8a3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  #colorbox span {
+    display:block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .fontSizeControl {
+    margin-top: 10px;
+  }
+
+  .fontSizeControl label {
+    margin-right: 10px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .NavigationBar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .SideBar {
+        width: 200px;
+      }
+
+    #colorbox {
+        width: 200px;
+        flex-wrap: wrap;
+      }
+    
+  }
+
+
+

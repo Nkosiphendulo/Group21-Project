@@ -1,0 +1,95 @@
+div{
+    float: top;
+    position: relative;
+    background-origin: padding-box;
+    border: 5px;
+    height: 60px;
+    background-color: rgb(5, 3, 143);
+    border-image: round;
+} 
+img{
+    left: 0px;
+    top: 0px;
+    margin: 20px 20px 20px 20px;
+    float: left;
+    width: 50px;
+    border-radius: 25px;
+}
+.Hover#About{
+    top: -60px;
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+}.Hover#Settings{
+    top: -60px;
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+}.Hover#Contacts{
+    top: -60px;
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    background-image: url(image.jpg);
+    background-size: cover;
+    align-items: center;
+    overflow-wrap: break-word;
+    
+}
+.ChatsView{
+    background-image: none;
+    background-color: rgb(235, 225, 225);
+}
+.Chatbox{
+    top: 95%;
+    left: 50%;
+    height: 30px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 20px;
+    
+    background-color:rgba(32, 28, 28, 0.11);
+}
+h1{
+    color:  rgb(7, 3, 231);
+    
+    font-size: 40px;
+    margin: auto;
+    left: 550px;
+}
+
+/* Theme box for background color*/
+
+#colorbox {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+#colorbox span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}

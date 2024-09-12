@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.NavigationBar{
+   width: 100%;
+   height: 10%;
+   position: relative;
+   background-color: blue;
+} 
+img{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    margin: 20px 20px 20px 20px;
+    float: left;
+    width: 50px;
+    border-radius: 25px;
+}
+
+
+
+body{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    background-image: url(/Resources/Pictures/P4.jpg);
+    background-size: cover;
+    align-items: center;
+}
+
+
+#nextPage{
+    
+    position: fixed;
+    top: 95%; /* Adjust as needed to vertically center */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    font-size: 50px;
+    text-align: center;
+     z-index: 1000; /* Ensure it's above other content */
+
+      
+}
+.SideBar{
+    font-size: 30px;
+    position: fixed;
+    top: 0px;
+    right: -250px;
+    width: 250px;
+    border-radius: 10px;
+    height: 60%;
+    background:#063146;
+    transition: all .5s ease;
+}
+.SideBar header{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    background: #0489cc ;
+    user-select: none; 
+}
+.SideBar ul a{
+    display: block;
+    height: 100%;
+    width: 100;
+    padding-left: 40px;
+    line-height: 140px;
+    font: 20px;
+    color:white;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
+    transition: .5s;
+}
+ ul li:hover a{
+    padding-left: 50px;
+    color: red; 
+}
+.SideBar ul a i{
+    margin-right: 16px;
+}
+#toggle{
+    display: none;
+}
+#toggle1{
+    display: none;
+}
+
+label #menuBar,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #042331;
+    border-radius: 3px;
+}
+label #menuBar{
+    right: 5px;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    transition: all .5s;
+}
+label #cancel{
+    position: fixed;
+    z-index: 1111;
+    right: -250px;
+    top: 5px;
+    font-size: 30px;
+    color:#0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+}
+#toggle:checked ~ .SideBar{
+    right: 0;
+}
+#toggle:checked ~ label #menuBar{
+    right:250px;
+    opacity: 0;
+    pointer-events: none;
+}
+#toggle:checked ~ label #cancel{
+    right:0px;
+}
+
+.settingsBox h3 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+#colorbox span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+#colorbox span:hover {
+    transform: scale(1.1);
+}
+
+ /* Centered and Combined Settings Box */
+ .settingsBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    background: rgb(88, 84, 84);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+  }
+
+
+  #colorbox {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #f4d8a3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  #colorbox span {
+    display:block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .fontSizeControl {
+    margin-top: 10px;
+  }
+
+  .fontSizeControl label {
+    margin-right: 10px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .NavigationBar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .SideBar {
+        width: 200px;
+      }
+
+    #colorbox {
+        width: 200px;
+        flex-wrap: wrap;
+      }
+    
+  }
+
+
+
+
