@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" user-scalable=0 content="width=device-width">
     <title>CHATSPAGE</title>
+    <script src="/Resources/JavaScript Files/dataset.js"></script>
     <link rel="stylesheet" href="/Resources/CSS Files/ViewChats.css" />
     <link
       rel="stylesheet"
@@ -29,19 +30,21 @@
           >
         </li>
         <li>
-          <a class="list" href="#"><i class="fa-solid fa-phone"></i>Contact </a>
+          <a class="list" href="/Resources/Html Files/ContantsPage.html">
+            <i class="fa-solid fa-phone"></i>Contact </a>
         </li>
         <li>
-          <a class="list" href="#"
-            ><i class="fa-solid fa-question-circle"></i>About</a
-          >
+          <!-- Updated About link -->
+          <a class="list" href="/Resources/Html Files/AboutPage.html">
+            <i class="fa-solid fa-question-circle"></i>About
+          </a>
         </li>
       </ul>
     </div>
     <div id="chat-container">
-      <div id="chat-output">
-      </div>
-      <input
+      <div id="chat-output"></div>
+     <div id="GroupInput&Chatbotton">
+       <input
         type="text"
         id="chat-input"
         placeholder="Type your message here..."
@@ -51,6 +54,7 @@
           send
           </span>
       </button>
+    </div>
     </div>
 
      <!-- Settings Box with Color and Font Size Adjustments -->
