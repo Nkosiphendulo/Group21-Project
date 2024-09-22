@@ -162,6 +162,21 @@ label #cancel{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1001;
   }
+  .cancel-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .cancel-button:hover {
+    color: red;
+  }
+  
 
 
   #colorbox {
@@ -207,3 +222,7 @@ label #cancel{
       }
     
   }
+
+
+
+
