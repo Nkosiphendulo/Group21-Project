@@ -1,55 +1,71 @@
+// Global variable to store the selected font size
+let userSelectedFontSize = 16; // Default font size
 
-document.getElementById('chat-button').addEventListener('click', function () {
-    const userInput = document.getElementById('chat-input').value.trim();
-    document.getElementById('chat-input').value = '';
+// Function to adjust the font size dynamically
+function adjustFontSize(size) {
+    const chatOutput = document.getElementById('chat-output');
+    if (chatOutput) {
+        chatOutput.style.fontSize = size + 'px';
 
-    if (userInput !== '') {
-        addChatMessage('You', userInput, 'user-message');
-        handleChat(userInput);
+        const userMessages = chatOutput.getElementsByClassName('message-bubble');
+        for (let i = 0; i < userMessages.length; i++) {
+            userMessages[i].style.fontSize = size + 'px';
+        }
     }
-});
+}
 
+// Function to add chat messages with the selected font size applied
+function addChatMessage(sender, message) {
+    const chatOutput = document.getElementById('chat-output');
+    if (chatOutput) {
+        const messageElement = document.createElement('div');
+        messageElement.className = `message-container ${sender}`;
 
-document.getElementById('chat-input').addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-        sendMessage();
+        const profileImage = document.createElement('img');
+        profileImage.src = sender === 'user' ? '/Resources/Pictures/R.png' : '/Resources/Pictures/Chatbot.jpeg'; 
+        profileImage.className = 'profile-pic';
+
+        const messageBubble = document.createElement('div');
+        messageBubble.className = 'message-bubble';
+        messageBubble.textContent = message;
+
+        // Apply the selected font size to the new message
+        messageBubble.style.fontSize = userSelectedFontSize + 'px';
+
+        messageElement.appendChild(profileImage);
+        messageElement.appendChild(messageBubble);
+
+        chatOutput.appendChild(messageElement);
+        chatOutput.scrollTop = chatOutput.scrollHeight; // Auto-scroll to the bottom
     }
-});
+}
 
-
+// Function to send a message
 function sendMessage() {
     const userInput = document.getElementById('chat-input').value.trim();
     if (userInput !== '') {
         document.getElementById('chat-input').value = '';
-        addChatMessage('You', userInput, 'user-message');
+        addChatMessage('user', userInput);
         handleChat(userInput);
     }
 }
 
-
-function addChatMessage(sender, message, messageType) {
-    const chatOutput = document.getElementById('chat-output');
-    const messageElement = document.createElement('p');
-    messageElement.className = `message ${messageType}`;
-    messageElement.textContent = `${sender}: ${message}`;
-
-    chatOutput.appendChild(messageElement);
-    chatOutput.scrollTop = chatOutput.scrollHeight; // Auto-scroll to the bottom
-}
-
+// Function to show typing indicator
 function showTypingIndicator() {
     const chatOutput = document.getElementById('chat-output');
-    const typingElement = document.createElement('p');
-    typingElement.className = 'typing-indicator';
-    typingElement.textContent = 'Typing...';
+    if (chatOutput) {
+        const typingElement = document.createElement('p');
+        typingElement.className = 'typing-indicator';
+        typingElement.textContent = 'Typing...';
 
-    chatOutput.appendChild(typingElement);
-    chatOutput.scrollTop = chatOutput.scrollHeight;
+        chatOutput.appendChild(typingElement);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
 
-    return typingElement; // Return the element to remove it later
+        return typingElement; // Return the element to remove it later
+    }
 }
 
-
+// Function to handle chat responses
 function handleChat(userInput) {
     const response = respond(userInput);
 
@@ -58,11 +74,14 @@ function handleChat(userInput) {
 
     // Simulate delay before bot responds
     setTimeout(() => {
-        typingElement.remove(); // Remove typing indicator
-        addChatMessage('Bot', response, 'bot-message');
+        if (typingElement) {
+            typingElement.remove(); // Remove typing indicator
+        }
+        addChatMessage('bot', response);
     }, 3000); // 3-second delay
 }
 
+// Function to generate a response based on user input
 function respond(userInput) {
     const cleanedInput = userInput.toLowerCase().trim();
     console.log("User Input:", cleanedInput);
@@ -78,48 +97,75 @@ function respond(userInput) {
     return "(isiZulu)Ngiyaxolisa angiwuzwa umbuzo wakho ukuthi uthini. (English) Sorry, I don't understand your question.";
 }
 
-// Font size adjustment
-function adjustFontSize(size) {
-    const chatOutput = document.getElementById('chat-output');
-    chatOutput.style.fontSize = size + 'px';
-
-    const userMessages = chatOutput.getElementsByClassName('user-message');
-    const botMessages = chatOutput.getElementsByClassName('bot-message');
-
-    for (let i = 0; i < userMessages.length; i++) {
-        userMessages[i].style.fontSize = size + 'px';
-    }
-
-    for (let i = 0; i < botMessages.length; i++) {
-        botMessages[i].style.fontSize = size + 'px';
-    }
-}
-
-// Toggle settings visibility
+// Function to toggle settings visibility
 function toggleSettings() {
     const settingsBox = document.getElementById('settingsBox');
-    settingsBox.style.display = settingsBox.style.display === 'block' ? 'none' : 'block';
+    if (settingsBox) {
+        settingsBox.style.display = settingsBox.style.display === 'block' ? 'none' : 'block';
+    }
 }
 
-// Color change function
+// Function to change background color
 function bgchange(color) {
     let colorarray = ['#f0ffff', '#000000', 'rgb(143, 143, 143)', '#afeeee', '#f5f5f5'];
-    document.querySelector('#chat-output').style.backgroundColor = colorarray[color];
+    const chatOutput = document.querySelector('#chat-output');
+    if (chatOutput) {
+        chatOutput.style.backgroundColor = colorarray[color];
+    }
 }
 
-var colorarray = ['#f0ffff', '#000000', 'rgb(143, 143, 143)', '#afeeee', '#f5f5f5'];
-var colorbox = document.getElementById('colorbox');
+// Initialize color options
+const colorarray = ['#f0ffff', '#000000', 'rgb(143, 143, 143)', '#afeeee', '#f5f5f5'];
+const colorbox = document.getElementById('colorbox');
 
-colorarray.forEach(function (color, index) {
-    let span = document.createElement('span');
-    span.style.backgroundColor = color;
-    span.addEventListener('click', function () {
-        bgchange(index);
+if (colorbox) {
+    colorarray.forEach(function (color, index) {
+        let span = document.createElement('span');
+        span.style.backgroundColor = color;
+        span.addEventListener('click', function () {
+            bgchange(index);
+        });
+        colorbox.appendChild(span);
     });
-    colorbox.appendChild(span);
-});
+}
 
-// Add event listener for the range input to adjust font size dynamically
-document.getElementById('fontSize').addEventListener('input', function () {
-    adjustFontSize(this.value);
+// Add event listeners once DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Font size adjustment
+    const fontSizeElement = document.getElementById('fontSize');
+    if (fontSizeElement) {
+        fontSizeElement.addEventListener('input', function () {
+            adjustFontSize(this.value);
+            userSelectedFontSize = this.value; // Update the global font size value
+        });
+    }
+
+    // Chat button click event
+    const chatButton = document.getElementById('chat-button');
+    if (chatButton) {
+        chatButton.addEventListener('click', function () {
+            sendMessage();
+        });
+    }
+
+    // Enter key event for chat input
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+
+    // Cancel button click event for settings
+    const cancelSettingsButton = document.getElementById('cancelSettings');
+    if (cancelSettingsButton) {
+        cancelSettingsButton.addEventListener('click', function () {
+            const settingsBox = document.getElementById('settingsBox');
+            if (settingsBox) {
+                settingsBox.style.display = 'none';
+            }
+        });
+    }
 });
