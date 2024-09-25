@@ -155,40 +155,63 @@ label #cancel{
 }
 
   
-  .message {
-  background-color: #dcf8c6;
-  margin: 5px 0 ; /* Aligns user messages to the right */
-  text-align: right;
-  border-radius: 10px;
-  padding: 10px;
-  max-width:100%; /* Width adjusts based on content */
-  word-wrap: break-word; /* Ensures long words are wrapped */
-  word-break: break-all;
-  overflow-wrap: break-word;
-  max-width: 50%;
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
-.user-message {
-  position: relative;
-  background-color: #dcf8c6;
-  margin-left: auto; /* Aligns user messages to the right */
-  text-align: right;
-  border-radius: 10px;
-  padding: 10px;
-  width: fit-content; /* Width adjusts based on content */ 
-   
+.message-container.user {
+  justify-content: flex-end;
 }
 
-.bot-message {
-    position: relative;
-    align-items: center;
-    background-color: #f1f1f1;
-    text-align: left;
-    border-radius: 10px;
-    padding: 10px; /* Minimal padding */
-    width: fit-content; /* Width adjusts based on content */
-    margin: 0px; /* Aligns bot messages to the left */
+.message-container.bot {
+  justify-content: flex-start;
 }
+
+.message-container.user .profile-pic {
+  order: 2; /* Move profile pic to the right for user */
+  margin-left: 10px;
+}
+
+.message-container.user .message-bubble {
+  order: 1; /* Message bubble on the left for user */
+  background-color: #0084ff;
+  color: white;
+  max-width: 50%; /* Limit the message bubble to 50% of the chat output width */
+  word-wrap: break-word; /* Wrap long words to the next line */
+  white-space: normal; /* Ensure the message wraps and no horizontal scroll */
+}
+
+.message-container.bot .profile-pic {
+  order: 1;
+  margin-right: 10px;
+}
+
+.message-container.bot .message-bubble {
+  order: 2;
+  background-color: #e0e0e0;
+  color: black;
+  max-width: 50%; /* Limit the message bubble to 50% of the chat output width */
+  word-wrap: break-word; /* Wrap long words to the next line */
+  white-space: normal; /* Ensure the message wraps and no horizontal scroll */
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.message-bubble {
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  overflow-wrap: break-word; /* Ensures that long words break properly */
+}
+
+
 .typing-indicator {
   font-style: italic;
   color: #e11313;
@@ -250,6 +273,21 @@ label #cancel{
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1001;
+  }
+
+  .cancel-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .cancel-button:hover {
+    color: red;
   }
 
   /* Theme box for background color*/
