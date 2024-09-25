@@ -1,5 +1,5 @@
 // Global variable to store the selected font size
-let userSelectedFontSize = 16; // Default font size
+let userSelectedFontSize = 30; // Default font size
 
 // Function to adjust the font size dynamically
 function adjustFontSize(size) {
@@ -22,7 +22,7 @@ function addChatMessage(sender, message) {
         messageElement.className = `message-container ${sender}`;
 
         const profileImage = document.createElement('img');
-        profileImage.src = sender === 'user' ? '/Resources/Pictures/R.png' : '/Resources/Pictures/Chatbot.jpeg'; 
+        profileImage.src = sender === 'user' ? '../Pictures/R.png' : '../Pictures/Chatbot.jpeg'; 
         profileImage.className = 'profile-pic';
 
         const messageBubble = document.createElement('div');
