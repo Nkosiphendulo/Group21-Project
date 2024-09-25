@@ -29,7 +29,7 @@ body{
     width: 100%;
     height: 100vh;
     font-family: sans-serif;
-    background-image: url(/Resources/Pictures/P4.jpg);
+    background-image: url(../Pictures/P4.jpg);
     background-size: cover;
     align-items: center;
 }
@@ -222,7 +222,4 @@ label #cancel{
       }
     
   }
-
-
-
 
